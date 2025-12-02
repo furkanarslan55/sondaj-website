@@ -1,11 +1,19 @@
-import { blogPosts } from "../../data/blogData"; // Dikkat: Burada iki nokta (../../) var
+import { blogPosts } from "../../data/blogData"; 
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 
-// Dinamik Başlık (SEO için)
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+// --- TİP TANIMLAMASI ---
+// Next.js 15+ standartlarına uygun tip
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+// Dinamik Metadata (SEO)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // Params'ı bekle (await)
+  const resolvedParams = await params;
+  const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
   
   if (!post) {
     return { title: "Yazı Bulunamadı" };
@@ -18,10 +26,24 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 // Sayfa İçeriği
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: Props) {
+  // 1. Params verisini asenkron olarak çözümlüyoruz (Next.js 15 fix)
+  const resolvedParams = await params;
+  
+  // 2. URL'deki karmaşık karakterleri düzeltiyoruz (Örn: %20 -> boşluk)
+  const currentSlug = decodeURIComponent(resolvedParams.slug);
+
+  // --- HATA AYIKLAMA (Terminalden kontrol et) ---
+  console.log("-----------------------------------------");
+  console.log("URL'den gelen slug:", currentSlug);
+  console.log("Veritabanında aranan:", blogPosts.map(p => p.slug)); // Mevcut slugları listeler
+  // ---------------------------------------------
+
+  const post = blogPosts.find((p) => p.slug === currentSlug);
 
   if (!post) {
+    console.log("SONUÇ: Eşleşme bulunamadı, 404'e gidiliyor.");
+    console.log("-----------------------------------------");
     notFound();
   }
 
@@ -42,13 +64,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
         </header>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-lg h-64 md:h-96 w-full relative">
-           <img 
-             src={post.image} 
-             alt={post.title} 
-             className="w-full h-full object-cover"
-           />
-        </div>
+        {/* Resim varsa göster, yoksa hata vermesin diye kontrol ekledik */}
+        {post.image && (
+          <div className="mb-10 rounded-2xl overflow-hidden shadow-lg h-64 md:h-96 w-full relative">
+             <img 
+               src={post.image} 
+               alt={post.title} 
+               className="w-full h-full object-cover"
+             />
+          </div>
+        )}
 
         <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed whitespace-pre-line">
            {post.content}

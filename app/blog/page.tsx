@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blogPosts } from "../data/blogData"; // Veri dosyasını çekiyoruz
+import { blogPosts } from "../data/blogData"; 
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -22,6 +22,8 @@ export default function BlogPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <article key={post.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
+              
+              {/* Resim Alanı */}
               <div className="relative h-48 w-full">
                  <img 
                    src={post.image} 
@@ -30,12 +32,14 @@ export default function BlogPage() {
                  />
               </div>
 
+              {/* İçerik Alanı */}
               <div className="p-6 flex flex-col flex-grow">
                 <div className="text-xs font-semibold text-orange-500 mb-2 uppercase tracking-wide">
                   {post.date}
                 </div>
                 
                 <h2 className="text-xl font-bold text-slate-800 mb-3 leading-snug hover:text-orange-600 transition">
+                  {/* DÜZELTME BURADA: href içinde post.slug olmalı */}
                   <Link href={`/blog/${post.slug}`}>
                     {post.title}
                   </Link>
@@ -46,11 +50,12 @@ export default function BlogPage() {
                 </p>
                 
                 <div className="mt-auto pt-4 border-t border-gray-100">
+                    {/* DÜZELTME BURADA: href içinde post.slug olmalı */}
                     <Link 
-                    href={`/blog/${post.slug}`} 
-                    className="inline-flex items-center text-orange-600 font-semibold text-sm hover:underline"
+                      href={`/blog/${post.slug}`} 
+                      className="inline-flex items-center text-orange-600 font-semibold text-sm hover:underline"
                     >
-                    Devamını Oku →
+                      Devamını Oku →
                     </Link>
                 </div>
               </div>
