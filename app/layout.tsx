@@ -132,7 +132,7 @@ export default function RootLayout({
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-orange-500">✉️</span>
-                    <a href="mailto:info@terrasondaj.com" className="hover:text-white transition">info@terrasondaj.com</a>
+                    <a href="mailto:info@terrasondaj.com" className="hover:text-white transition">info@terrasondaj.net</a>
                   </li>
                 </ul>
               </div>

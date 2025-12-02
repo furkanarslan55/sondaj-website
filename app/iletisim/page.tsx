@@ -57,7 +57,7 @@ export default function Iletisim() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <span>📧</span>
-                  <span>info@terrasondaj.com</span>
+                  <span>info@terrasondaj.net</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span>📍</span>
