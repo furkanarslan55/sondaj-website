@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://sizin-site-adiniz.com' // Burayı domain alınca düzelteceğiz
+  const baseUrl = 'https://terrasondaj.net' // Burayı domain alınca düzelteceğiz
 
   return [
     {

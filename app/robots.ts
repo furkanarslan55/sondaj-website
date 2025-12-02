@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/', // Özel klasörün olursa buraya yazarsın
     },
-    sitemap: 'https://sizin-site-adiniz.com/sitemap.xml',
+    sitemap: 'https://terrasondaj.net/sitemap.xml',
   }
 }
