@@ -47,20 +47,37 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      {/* 1. HERO SECTION (MODERN GLASSMORPHISM TASARIM) */}
+      {/* 1. HERO SECTION (MOBİL VE MASAÜSTÜ AYRI) */}
       <section className="relative h-[700px] flex items-center justify-center text-white">
-        {/* Arkaplan Resmi */}
+        
+        {/* Arkaplan Resim Alanı */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/banner.jpg"
-            alt="Profesyonel Su Sondaj Makinesi"
-            fill
-            className="object-cover brightness-50"
-            priority
-          />
+          
+          {/* A) MASAÜSTÜ RESMİ (Sadece PC'de görünür - hidden md:block) */}
+          <div className="hidden md:block w-full h-full relative">
+            <Image
+              src="/banner.webp"  // Mevcut YATAY resmin
+              alt="Profesyonel Su Sondaj Makinesi Masaüstü"
+              fill
+              className="object-cover brightness-50"
+              priority // Sayfa açılır açılmaz yüklenir
+            />
+          </div>
+
+          {/* B) MOBİL RESMİ (Sadece Telefonda görünür - block md:hidden) */}
+          <div className="block md:hidden w-full h-full relative">
+            <Image
+              src="/banner_mobil.jpg" // BURAYA DİKEY RESİM KOY (public klasörüne at)
+              alt="Profesyonel Su Sondaj Makinesi Mobil"
+              fill
+              className="object-cover brightness-50"
+              priority // Mobilde hemen yüklensin
+            />
+          </div>
+
         </div>
 
-        {/* BUZLU CAM EFEKTLİ KUTU */}
+        {/* BUZLU CAM EFEKTLİ KUTU (İÇERİK DEĞİŞMEDİ) */}
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <div className="bg-black/30 backdrop-blur-md p-8 md:p-14 rounded-3xl border border-white/20 shadow-2xl">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight drop-shadow-lg">
@@ -128,9 +145,10 @@ export default function Home() {
             <div className="group border rounded-lg overflow-hidden shadow-sm hover:shadow-2xl transition duration-300">
               <div className="relative h-56 overflow-hidden">
                 <Image 
-                  src="/sondajçalışan.png" 
+                  src="/sondajçalışan.webp" 
                   alt="Su Sondajı" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -145,9 +163,10 @@ export default function Home() {
             <div className="group border rounded-lg overflow-hidden shadow-sm hover:shadow-2xl transition duration-300">
               <div className="relative h-56 overflow-hidden">
                 <Image 
-                  src="/zemin_etüdü.png" 
+                  src="/zemin_etüdü.webp" 
                   alt="Zemin Etüdü" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -162,9 +181,10 @@ export default function Home() {
             <div className="group border rounded-lg overflow-hidden shadow-sm hover:shadow-2xl transition duration-300">
               <div className="relative h-56 overflow-hidden">
                 <Image 
-                  src="/pompa.png" 
+                  src="/pompa.webp" 
                   alt="Dalgıç Pompa" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-110 transition duration-500"
                 />
               </div>
@@ -196,11 +216,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. VİDEO GALERİ BÖLÜMÜ (YENİ EKLENEN KISIM) */}
-      {/* Not: Koyu renk arka plan ile footer'a geçişi yumuşattık */}
+      {/* 5. VİDEO GALERİ BÖLÜMÜ */}
       <section className="py-20 bg-slate-900 text-white border-t border-slate-800">
         <div className="container mx-auto px-4">
-          {/* Bölüm Başlığı */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black tracking-wider mb-4">
               SAHADAN GÖRÜNTÜLER
@@ -211,18 +229,14 @@ export default function Home() {
             <div className="w-24 h-1 bg-orange-500 mx-auto mt-6 rounded-full"></div>
           </div>
 
-          {/* Video Grid Yapısı */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             
             {/* VİDEO 1 */}
             <div className="bg-slate-800/50 p-3 rounded-2xl border border-slate-700/50 shadow-2xl hover:shadow-orange-500/10 transition duration-300">
-              {/* aspect-video: Youtube videolarının en boy oranını otomatik korur */}
               <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
                 <iframe 
                   className="w-full h-full object-cover"
-                  /* BURAYA KENDİ VİDEO LİNKİNİ (EMBED OLAN) YAPIŞTIRACAKSIN */
-                  /* Örnek Link: https://www.youtube.com/embed/VIDEO_ID */
-                  src="https://www.youtube.com/embed/jVHZarqzM60?si=WapKRC_UwlCBKyFt"  // Test için örnek bir sondaj videosu koydum
+                  src="https://www.youtube.com/embed/jVHZarqzM60?si=WapKRC_UwlCBKyFt"
                   title="Su Sondajı Operasyonu"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -240,8 +254,7 @@ export default function Home() {
               <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
                 <iframe 
                   className="w-full h-full object-cover"
-                  /* BURAYA KENDİ VİDEO LİNKİNİ (EMBED OLAN) YAPIŞTIRACAKSIN */
-                  src="https://www.youtube.com/embed/jXkicooWzwE?si=VRzwT2Gjd2uUB4Yw" // Test için başka bir örnek video
+                  src="https://www.youtube.com/embed/jXkicooWzwE?si=VRzwT2Gjd2uUB4Yw"
                   title="Kuyu Temizliği ve İnkişaf"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

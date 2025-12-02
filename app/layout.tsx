@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   // Domain adresin. Site yayına girdiğinde çalışır.
-  metadataBase: new URL('https://terrasondaj.com'), 
+  metadataBase: new URL('https://terrasondaj.net'), 
   
   title: {
     default: "Terra Sondaj | Tekirdağ Su Sondajı ve Zemin Etüdü",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Terra Sondaj | Garantili Su Çözümleri',
     description: 'Arazinizde su yoksa ücret yok. Profesyonel sondaj ve zemin etüdü çözümleri.',
-    url: 'https://terrasondaj.com',
+    url: 'https://terrasondaj.net',
     siteName: 'Terra Sondaj Mühendislik',
     locale: 'tr_TR',
     type: 'website',
