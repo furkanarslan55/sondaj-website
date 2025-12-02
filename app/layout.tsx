@@ -1,31 +1,52 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header"; // Yeni oluşturduğumuz Header'ı içe aktarıyoruz
-import Link from "next/link"; // Footer için gerekli
+import Header from "@/components/Header"; // Oluşturduğumuz çalışan menü
+import Link from "next/link"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
-// --- SEO VE SOSYAL MEDYA AYARLARI ---
+// --- SEO VE SOSYAL MEDYA (OPEN GRAPH) AYARLARI ---
 export const metadata: Metadata = {
   metadataBase: new URL('https://terrasondaj.com'), 
-  title: "Terra Sondaj | Tekirdağ Su Sondajı ve Zemin Etüdü",
+  
+  // Title şablonu: Alt sayfalarda "İletişim | Terra Sondaj" şeklinde görünmesini sağlar
+  title: {
+    default: "Terra Sondaj | Tekirdağ Su Sondajı ve Zemin Etüdü",
+    template: "%s | Terra Sondaj",
+  },
+  
   description: "Tekirdağ, Çorlu, Çerkezköy ve tüm Trakya bölgesinde garantili su sondajı, zemin etüdü ve kuyu ruhsatı hizmetleri. 20 yıllık tecrübe.",
+  
+  // Facebook, WhatsApp, LinkedIn Paylaşımları
   openGraph: {
     title: 'Terra Sondaj | Garantili Su Çözümleri',
     description: 'Arazinizde su yoksa ücret yok. Profesyonel sondaj ve zemin etüdü çözümleri.',
     url: 'https://terrasondaj.com',
-    siteName: 'Terra Sondaj',
-    images: [
-      {
-        url: '/banner.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Terra Sondaj Sahadan Görüntü',
-      },
-    ],
+    siteName: 'Terra Sondaj Mühendislik',
     locale: 'tr_TR',
     type: 'website',
+    images: [
+      {
+        url: '/sosyal.png', // Public klasörüne koyman gereken resim
+        width: 1200,
+        height: 630,
+        alt: 'Terra Sondaj - Trakya Su Sondaj Hizmetleri',
+      },
+    ],
+  },
+
+  // Twitter (X) Paylaşımları
+  twitter: {
+    card: 'summary_large_image', // Büyük resim gösterir
+    title: 'Terra Sondaj | Trakya Su Sondaj Hizmetleri',
+    description: 'Tekirdağ ve çevresinde su sondajı, kuyu temizliği ve pompa işleri.',
+    images: ['/opengraph-image.jpg'], 
+  },
+
+  // Tarayıcı sekmesindeki ikonlar
+  icons: {
+    icon: '/favicon.ico', 
   },
 };
 
@@ -38,7 +59,7 @@ export default function RootLayout({
     <html lang="tr">
       <body className={`${inter.className} bg-gray-50`}>
         
-        {/* --- Header Bileşeni Buraya Geldi --- */}
+        {/* --- Header Bileşeni (Hamburger Menü Sorunu Çözüldü) --- */}
         <Header />
 
         {/* SAYFA İÇERİĞİ */}
