@@ -7,27 +7,62 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  // Domain adresin. Site yayına girdiğinde çalışır.
+  // Domain adresin.
   metadataBase: new URL('https://terrasondaj.net'), 
-  
-  title: {
-    default: "Terra Sondaj | Tekirdağ Su Sondajı ve Zemin Etüdü",
-    template: "%s | Terra Sondaj",
+
+  // Google Botlarına izinler
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
-  
-  description: "Tekirdağ, Çorlu, Çerkezköy ve tüm Trakya bölgesinde garantili su sondajı, zemin etüdü ve kuyu ruhsatı hizmetleri. 20 yıllık tecrübe.",
-  
-  // Facebook, WhatsApp, LinkedIn
+
+  // 1. Ana Başlık Stratejisi
+  title: {
+    default: "Terra Sondaj | Tekirdağ Garantili Su Sondajı ve Zemin Etüdü",
+    template: "%s | Terra Sondaj Mühendislik",
+  },
+
+  // 2. Açıklama Stratejisi (Verdiğin kelimelerle harmanlandı)
+  description: "Tekirdağ ve Trakya genelinde ekonomik, hızlı ve garantili su kuyusu sondajı. Bahçe ve tarla için su arama, zemin etüdü, kuyu temizliği ve dalgıç pompa montaj hizmetleri.",
+
+  // 3. Anahtar Kelimeler (Listeni buraya işledim)
+  keywords: [
+    "garantili su kuyusu sondajı Tekirdağ",
+    "ekonomik su sondajı Tekirdağ",
+    "kaliteli su kuyusu açma hizmeti",
+    "hızlı su kuyusu sondaj Tekirdağ",
+    "su kuyusu ve zemin etüdü",
+    "pompa montaj ve su kuyusu",
+    "bahçe su kuyusu sondajı",
+    "tarla su kuyusu sondajı",
+    "zemin etüdü sondaj Tekirdağ",
+    "kuyu temizliği Tekirdağ",
+    "pompa kurulumu ve montaj",
+    "derin kuyu sondajı",
+    "artezyen kuyu sondajı",
+    "sondaj ve su arama",
+    "Çorlu sondaj",
+    "Çerkezköy zemin etüdü"
+  ],
+
+  // Sosyal Medya Paylaşımları
   openGraph: {
-    title: 'Terra Sondaj | Garantili Su Çözümleri',
-    description: 'Arazinizde su yoksa ücret yok. Profesyonel sondaj ve zemin etüdü çözümleri.',
+    title: 'Terra Sondaj | Tekirdağ Garantili Su Çözümleri',
+    description: 'Arazinizde su yoksa ücret yok. Bahçe, tarla ve sanayi için profesyonel sondaj, zemin etüdü ve pompa çözümleri.',
     url: 'https://terrasondaj.net',
     siteName: 'Terra Sondaj Mühendislik',
     locale: 'tr_TR',
     type: 'website',
     images: [
       {
-        url: '/sosyal.png', // DİKKAT: Public klasöründe bu isimde resim olmalı
+        url: '/sosyal.png',
         width: 1200,
         height: 630,
         alt: 'Terra Sondaj - Trakya Su Sondaj Hizmetleri',
@@ -35,12 +70,10 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter (X)
   twitter: {
     card: 'summary_large_image',
     title: 'Terra Sondaj | Trakya Su Sondaj Hizmetleri',
     description: 'Tekirdağ ve çevresinde su sondajı, kuyu temizliği ve pompa işleri.',
-    // BURAYI DÜZELTTİM: Artık burası da sosyal.png kullanıyor
     images: ['/sosyal.png'], 
   },
 
@@ -74,7 +107,7 @@ export default function RootLayout({
                   TERRA<span className="text-orange-500">SONDAJ</span>
                 </div>
                 <p className="text-sm leading-relaxed mb-6">
-                  20 yıllık tecrübemizle su sondajı, zemin etüdü ve dalgıç pompa sistemlerinde garantili çözümler sunuyoruz. Suyun olduğu her yerdeyiz.
+                  20 yıllık tecrübemizle Tekirdağ bölgesinde; derin kuyu sondajı, zemin etüdü ve dalgıç pompa sistemlerinde garantili çözümler sunuyoruz. Suyun olduğu her yerdeyiz.
                 </p>
               </div>
 
@@ -83,8 +116,8 @@ export default function RootLayout({
                 <h4 className="text-white font-bold mb-6 border-b border-gray-800 pb-2 inline-block">Kurumsal</h4>
                 <ul className="space-y-3 text-sm">
                   <li><Link href="/" className="hover:text-orange-500 transition">Anasayfa</Link></li>
-                  <li><Link href="/hizmetler" className="hover:text-orange-500 transition">Hakkımızda</Link></li>
-                  <li><Link href="/hizmetler" className="hover:text-orange-500 transition">Referanslar</Link></li>
+                  <li><Link href="/hakkimizda" className="hover:text-orange-500 transition">Hakkımızda</Link></li>
+                  <li><Link href="/referanslar" className="hover:text-orange-500 transition">Referanslar</Link></li>
                   <li><Link href="/iletisim" className="hover:text-orange-500 transition">İletişim</Link></li>
                 </ul>
               </div>
@@ -93,10 +126,10 @@ export default function RootLayout({
               <div>
                 <h4 className="text-white font-bold mb-6 border-b border-gray-800 pb-2 inline-block">Hizmetlerimiz</h4>
                 <ul className="space-y-3 text-sm">
-                  <li><Link href="/hizmetler" className="hover:text-orange-500 transition">Su Sondajı</Link></li>
-                  <li><Link href="/hizmetler" className="hover:text-orange-500 transition">Zemin Etüdü</Link></li>
-                  <li><Link href="/hizmetler" className="hover:text-orange-500 transition">Kuyu Temizliği</Link></li>
-                  <li><Link href="/hizmetler" className="hover:text-orange-500 transition">Dalgıç Pompa Satış</Link></li>
+                  <li><Link href="/hizmetler/su-sondaji" className="hover:text-orange-500 transition">Su Sondajı</Link></li>
+                  <li><Link href="/hizmetler/zemin-etudu" className="hover:text-orange-500 transition">Zemin Etüdü</Link></li>
+                  <li><Link href="/hizmetler/kuyu-temizligi" className="hover:text-orange-500 transition">Kuyu Temizliği</Link></li>
+                  <li><Link href="/hizmetler/dalgic-pompa" className="hover:text-orange-500 transition">Dalgıç Pompa Satış</Link></li>
                 </ul>
               </div>
 
@@ -106,7 +139,7 @@ export default function RootLayout({
                 <ul className="space-y-4 text-sm">
                   <li className="flex items-start gap-3">
                     <span className="text-orange-500">📍</span>
-                    <span>Tekirdağ, Türkiye (Hizmet Bölgemiz: Tüm Trakya)</span>
+                    <span>Tekirdağ, Çorlu, Çerkezköy ve Tüm Trakya</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-orange-500">📞</span>
@@ -114,19 +147,20 @@ export default function RootLayout({
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-orange-500">✉️</span>
-                    <a href="mailto:info@terrasondaj.com" className="hover:text-white transition">info@terrasondaj.net</a>
+                    <a href="mailto:info@terrasondaj.net" className="hover:text-white transition">info@terrasondaj.net</a>
                   </li>
                 </ul>
               </div>
             </div>
 
-            {/* Yerel SEO */}
+            {/* Yerel SEO Alanı - Verdiğin Kelimeler Burada Metin Olarak Geçiyor */}
             <div className="border-t border-gray-800 pt-8 pb-4">
-              <p className="text-xs font-bold text-gray-500 mb-2">HİZMET BÖLGELERİMİZ:</p>
+              <p className="text-xs font-bold text-gray-500 mb-2">HİZMET ETİKETLERİ:</p>
               <p className="text-xs text-gray-600 leading-loose">
-                Tekirdağ Su Sondajı, Çorlu Zemin Etüdü, Çerkezköy Kuyu Açma, Kapaklı Sondaj Firmaları, 
-                Ergene Su Arama, Süleymanpaşa Sondaj Fiyatları, Malkara Dalgıç Pompa, Hayrabolu Kuyu Temizliği, 
-                Saray Sondaj, Marmara Ereğlisi Su Kuyusu, Muratlı Sondaj, Şarköy Zemin Etüdü, Kırklareli Sondaj, Edirne Su Sondajı.
+                Tekirdağ garantili su kuyusu sondajı, Çorlu ekonomik su sondajı fiyatları, Çerkezköy hızlı su kuyusu açma, 
+                Süleymanpaşa su kuyusu ve zemin etüdü, Ergene pompa montaj ve su kuyusu işlemleri. 
+                Bahçe su kuyusu sondajı ve tarla sulama sistemleri kurulumu. Derin kuyu ve artezyen sondaj hizmetlerinde 
+                kaliteli su kuyusu açma hizmeti sunuyoruz. Sondaj ve su arama, kuyu temizliği ve pompa kurulumu için profesyonel mühendislik.
               </p>
             </div>
 

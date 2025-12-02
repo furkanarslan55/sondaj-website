@@ -22,6 +22,7 @@ export default function Header() {
           <ul className="flex space-x-8 text-sm font-medium tracking-wide">
             <li><Link href="/" className="hover:text-orange-400 transition duration-300">ANASAYFA</Link></li>
             <li><Link href="/hizmetler" className="hover:text-orange-400 transition duration-300">HİZMETLER</Link></li>
+            <li><Link href="/blog" className="hover:text-orange-400 transition duration-300">BLOG</Link></li>
             <li><Link href="/iletisim" className="hover:text-orange-400 transition duration-300">İLETİŞİM</Link></li>
           </ul>
           
@@ -57,6 +58,16 @@ export default function Header() {
               </Link>
             </li>
             <li>
+              <Link href="/blog" onClick={() => setIsMenuOpen(false)} className="block py-2 hover:text-orange-400 hover:bg-slate-800 rounded transition">
+                BLOG
+              </Link>
+            </li>
+            <li>
+              <Link href="/referanslar" onClick={() => setIsMenuOpen(false)} className="block py-2 hover:text-orange-400 hover:bg-slate-800 rounded transition">
+                REFERANSLAR
+              </Link>
+            </li>
+            <li>
               <Link href="/iletisim" onClick={() => setIsMenuOpen(false)} className="block py-2 hover:text-orange-400 hover:bg-slate-800 rounded transition">
                 İLETİŞİM
               </Link>
@@ -74,5 +85,4 @@ export default function Header() {
       )}
     </header>
   );
-  
 }
