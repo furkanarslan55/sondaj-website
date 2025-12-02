@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header"; // Oluşturduğumuz çalışan menü
+import Header from "@/components/Header"; 
 import Link from "next/link"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
-// --- SEO VE SOSYAL MEDYA (OPEN GRAPH) AYARLARI ---
 export const metadata: Metadata = {
+  // Domain adresin. Site yayına girdiğinde çalışır.
   metadataBase: new URL('https://terrasondaj.com'), 
   
-  // Title şablonu: Alt sayfalarda "İletişim | Terra Sondaj" şeklinde görünmesini sağlar
   title: {
     default: "Terra Sondaj | Tekirdağ Su Sondajı ve Zemin Etüdü",
     template: "%s | Terra Sondaj",
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
   
   description: "Tekirdağ, Çorlu, Çerkezköy ve tüm Trakya bölgesinde garantili su sondajı, zemin etüdü ve kuyu ruhsatı hizmetleri. 20 yıllık tecrübe.",
   
-  // Facebook, WhatsApp, LinkedIn Paylaşımları
+  // Facebook, WhatsApp, LinkedIn
   openGraph: {
     title: 'Terra Sondaj | Garantili Su Çözümleri',
     description: 'Arazinizde su yoksa ücret yok. Profesyonel sondaj ve zemin etüdü çözümleri.',
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/sosyal.png', // Public klasörüne koyman gereken resim
+        url: '/sosyal.png', // DİKKAT: Public klasöründe bu isimde resim olmalı
         width: 1200,
         height: 630,
         alt: 'Terra Sondaj - Trakya Su Sondaj Hizmetleri',
@@ -36,15 +35,15 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter (X) Paylaşımları
+  // Twitter (X)
   twitter: {
-    card: 'summary_large_image', // Büyük resim gösterir
+    card: 'summary_large_image',
     title: 'Terra Sondaj | Trakya Su Sondaj Hizmetleri',
     description: 'Tekirdağ ve çevresinde su sondajı, kuyu temizliği ve pompa işleri.',
-    images: ['/opengraph-image.jpg'], 
+    // BURAYI DÜZELTTİM: Artık burası da sosyal.png kullanıyor
+    images: ['/sosyal.png'], 
   },
 
-  // Tarayıcı sekmesindeki ikonlar
   icons: {
     icon: '/favicon.ico', 
   },
@@ -59,20 +58,17 @@ export default function RootLayout({
     <html lang="tr">
       <body className={`${inter.className} bg-gray-50`}>
         
-        {/* --- Header Bileşeni (Hamburger Menü Sorunu Çözüldü) --- */}
         <Header />
 
-        {/* SAYFA İÇERİĞİ */}
         {children}
 
-        {/* --- GELİŞMİŞ FOOTER --- */}
+        {/* --- FOOTER --- */}
         <footer className="bg-slate-950 text-gray-400 py-16 mt-10 border-t border-gray-800 relative z-40">
           <div className="container mx-auto px-4">
             
-            {/* Üst Kısım: Linkler ve Bilgiler */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
               
-              {/* 1. Sütun: Marka */}
+              {/* 1. Sütun */}
               <div>
                 <div className="text-2xl font-bold text-white mb-4">
                   TERRA<span className="text-orange-500">SONDAJ</span>
@@ -82,7 +78,7 @@ export default function RootLayout({
                 </p>
               </div>
 
-              {/* 2. Sütun: Hızlı Linkler */}
+              {/* 2. Sütun */}
               <div>
                 <h4 className="text-white font-bold mb-6 border-b border-gray-800 pb-2 inline-block">Kurumsal</h4>
                 <ul className="space-y-3 text-sm">
@@ -93,7 +89,7 @@ export default function RootLayout({
                 </ul>
               </div>
 
-              {/* 3. Sütun: Hizmetler */}
+              {/* 3. Sütun */}
               <div>
                 <h4 className="text-white font-bold mb-6 border-b border-gray-800 pb-2 inline-block">Hizmetlerimiz</h4>
                 <ul className="space-y-3 text-sm">
@@ -104,7 +100,7 @@ export default function RootLayout({
                 </ul>
               </div>
 
-              {/* 4. Sütun: İletişim */}
+              {/* 4. Sütun */}
               <div>
                 <h4 className="text-white font-bold mb-6 border-b border-gray-800 pb-2 inline-block">Bize Ulaşın</h4>
                 <ul className="space-y-4 text-sm">
@@ -124,7 +120,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            {/* --- YEREL SEO ALANI --- */}
+            {/* Yerel SEO */}
             <div className="border-t border-gray-800 pt-8 pb-4">
               <p className="text-xs font-bold text-gray-500 mb-2">HİZMET BÖLGELERİMİZ:</p>
               <p className="text-xs text-gray-600 leading-loose">
@@ -134,14 +130,13 @@ export default function RootLayout({
               </p>
             </div>
 
-            {/* Alt Telif Çubuğu */}
             <div className="border-t border-gray-800 pt-8 text-center text-sm">
               <p>&copy; 2025 Terra Sondaj Mühendislik. Tüm hakları saklıdır.</p>
             </div>
           </div>
         </footer>
 
-        {/* --- WHATSAPP BUTONU --- */}
+        {/* Whatsapp Butonu */}
         <a
           href="https://wa.me/905428312094?text=Merhaba,%20sondaj%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum."
           target="_blank"
@@ -149,14 +144,7 @@ export default function RootLayout({
           className="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300 hover:scale-110 flex items-center justify-center border-2 border-white ring-2 ring-green-500/50"
           aria-label="WhatsApp ile İletişime Geç"
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="32" 
-            height="32" 
-            fill="currentColor" 
-            className="bi bi-whatsapp" 
-            viewBox="0 0 16 16"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-whatsapp" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
           </svg>
         </a>
