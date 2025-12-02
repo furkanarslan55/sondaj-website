@@ -1,13 +1,13 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header"; // Yeni oluşturduğumuz Header'ı içe aktarıyoruz
+import Link from "next/link"; // Footer için gerekli
 
 const inter = Inter({ subsets: ["latin"] });
 
 // --- SEO VE SOSYAL MEDYA AYARLARI ---
 export const metadata: Metadata = {
-  // Buraya ileride satın alacağın domaini yazmalısın (Şimdilik örnek duruyor)
   metadataBase: new URL('https://terrasondaj.com'), 
   title: "Terra Sondaj | Tekirdağ Su Sondajı ve Zemin Etüdü",
   description: "Tekirdağ, Çorlu, Çerkezköy ve tüm Trakya bölgesinde garantili su sondajı, zemin etüdü ve kuyu ruhsatı hizmetleri. 20 yıllık tecrübe.",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'Terra Sondaj',
     images: [
       {
-        url: '/banner.jpg', // Public klasörüne attığın resim sosyal medyada görünecek
+        url: '/banner.jpg',
         width: 1200,
         height: 630,
         alt: 'Terra Sondaj Sahadan Görüntü',
@@ -38,43 +38,8 @@ export default function RootLayout({
     <html lang="tr">
       <body className={`${inter.className} bg-gray-50`}>
         
-        {/* --- MODERN HEADER (STICKY / SABİT) --- */}
-        <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-white/10 text-white shadow-lg transition-all duration-300">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            
-            {/* LOGO ALANI */}
-            <Link href="/" className="text-2xl font-black tracking-wider group">
-              <span className="text-white group-hover:text-gray-200 transition">TERRA</span>
-              <span className="text-orange-500">SONDAJ</span>
-            </Link>
-
-            {/* MENÜ ALANI (Desktop) */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <ul className="flex space-x-8 text-sm font-medium tracking-wide">
-                <li>
-                  <Link href="/" className="hover:text-orange-400 transition duration-300">ANASAYFA</Link>
-                </li>
-                <li>
-                  <Link href="/hizmetler" className="hover:text-orange-400 transition duration-300">HİZMETLER</Link>
-                </li>
-                <li>
-                  <Link href="/iletisim" className="hover:text-orange-400 transition duration-300">İLETİŞİM</Link>
-                </li>
-              </ul>
-              
-              {/* Header İçi Aksiyon Butonu */}
-              <a 
-                href="tel:+905428312094" 
-                className="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-full font-bold text-sm transition shadow-lg hover:shadow-orange-500/30 flex items-center gap-2"
-              >
-                <span>📞</span> 0542 831 20 94
-              </a>
-            </nav>
-            
-            {/* Mobil Menü İkonu (Basit Görüntü) */}
-            <div className="md:hidden text-2xl cursor-pointer">☰</div>
-          </div>
-        </header>
+        {/* --- Header Bileşeni Buraya Geldi --- */}
+        <Header />
 
         {/* SAYFA İÇERİĞİ */}
         {children}
@@ -107,7 +72,7 @@ export default function RootLayout({
                 </ul>
               </div>
 
-              {/* 3. Sütun: Hizmetler (SEO İçin Önemli) */}
+              {/* 3. Sütun: Hizmetler */}
               <div>
                 <h4 className="text-white font-bold mb-6 border-b border-gray-800 pb-2 inline-block">Hizmetlerimiz</h4>
                 <ul className="space-y-3 text-sm">
@@ -138,7 +103,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            {/* --- YEREL SEO (İLÇE HEDEFLEME) ALANI --- */}
+            {/* --- YEREL SEO ALANI --- */}
             <div className="border-t border-gray-800 pt-8 pb-4">
               <p className="text-xs font-bold text-gray-500 mb-2">HİZMET BÖLGELERİMİZ:</p>
               <p className="text-xs text-gray-600 leading-loose">
@@ -155,7 +120,7 @@ export default function RootLayout({
           </div>
         </footer>
 
-        {/* --- WHATSAPP BUTONU (SABİT) --- */}
+        {/* --- WHATSAPP BUTONU --- */}
         <a
           href="https://wa.me/905428312094?text=Merhaba,%20sondaj%20hizmetleriniz%20hakkında%20bilgi%20almak%20istiyorum."
           target="_blank"
