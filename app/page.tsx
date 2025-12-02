@@ -23,7 +23,7 @@ export default function Home() {
       latitude: 41.0082, 
       longitude: 28.9784
     },
-    url: 'https://sizin-site-adiniz.com',
+    url: 'https://terrasondaj.net',
     telephone: '+905428312094',
     priceRange: '₺₺',
     openingHoursSpecification: [
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-8 bg-white rounded-xl shadow-lg hover:-translate-y-2 transition duration-300 border-b-4 border-blue-500">
-                <div className="text-5xl mb-4">🛡️</div>
+                <div className="text-5xl mb-4">🤝</div>
                 <h3 className="text-xl font-bold mb-2 text-gray-800">%100 Su Garantisi</h3>
                 <p className="text-gray-600">Jeofizik etütler sonucunda nokta atışı tespit yapıyoruz.</p>
             </div>
@@ -181,7 +181,7 @@ export default function Home() {
       {/* 4. SEO CONTENT BLOCK */}
       <section className="bg-gray-100 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800">Terra Sondaj: Bölgenin Lider Firması</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-800">Terra Sondaj: Bölgenin Lider Firması 🏅</h2>
           <div className="text-gray-700 space-y-4">
             <p>
               Su sondajı, özellikle kuraklığın arttığı dönemlerde tarım arazileri ve sanayi tesisleri için hayati önem taşır. 
