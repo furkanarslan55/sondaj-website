@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header"; 
-import Link from "next/link"; 
+import Header from "@/components/Header";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  // Domain adresin.
-  metadataBase: new URL('https://terrasondaj.net'), 
+  metadataBase: new URL('https://terrasondaj.net'),
 
-  // Google Botlarına izinler
   robots: {
     index: true,
     follow: true,
@@ -23,16 +21,13 @@ export const metadata: Metadata = {
     },
   },
 
-  // 1. Ana Başlık Stratejisi
   title: {
     default: "Terra Sondaj | Tekirdağ Garantili Su Sondajı ve Zemin Etüdü",
     template: "%s | Terra Sondaj Mühendislik",
   },
 
-  // 2. Açıklama Stratejisi (Verdiğin kelimelerle harmanlandı)
   description: "Tekirdağ ve Trakya genelinde ekonomik, hızlı ve garantili su kuyusu sondajı. Bahçe ve tarla için su arama, zemin etüdü, kuyu temizliği ve dalgıç pompa montaj hizmetleri.",
 
-  // 3. Anahtar Kelimeler (Listeni buraya işledim)
   keywords: [
     "garantili su kuyusu sondajı Tekirdağ",
     "ekonomik su sondajı Tekirdağ",
@@ -52,7 +47,6 @@ export const metadata: Metadata = {
     "Çerkezköy zemin etüdü"
   ],
 
-  // Sosyal Medya Paylaşımları
   openGraph: {
     title: 'Terra Sondaj | Tekirdağ Garantili Su Çözümleri',
     description: 'Arazinizde su yoksa ücret yok. Bahçe, tarla ve sanayi için profesyonel sondaj, zemin etüdü ve pompa çözümleri.',
@@ -74,11 +68,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Terra Sondaj | Trakya Su Sondaj Hizmetleri',
     description: 'Tekirdağ ve çevresinde su sondajı, kuyu temizliği ve pompa işleri.',
-    images: ['/sosyal.png'], 
+    images: ['/sosyal.png'],
   },
 
   icons: {
-    icon: '/icon.png', 
+    icon: '/icon.png',
   },
 };
 
@@ -89,8 +83,30 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr">
+      <head>
+
+        {/* ⭐ GOOGLE TAG (GTAG.JS) - TÜM SAYFALARA OTOMATİK UYGULANDI */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17771989046"
+        ></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17771989046');
+            `,
+          }}
+        />  
+        {/* ⭐ GOOGLE TAG BİTİŞ */}
+
+      </head>
+
       <body className={`${inter.className} bg-gray-50`}>
-        
+
         <Header />
 
         {children}
@@ -153,7 +169,6 @@ export default function RootLayout({
               </div>
             </div>
 
-            {/* Yerel SEO Alanı - Verdiğin Kelimeler Burada Metin Olarak Geçiyor */}
             <div className="border-t border-gray-800 pt-8 pb-4">
               <p className="text-xs font-bold text-gray-500 mb-2">HİZMET ETİKETLERİ:</p>
               <p className="text-xs text-gray-600 leading-loose">
