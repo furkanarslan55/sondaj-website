@@ -33,7 +33,7 @@ export default function Hizmetler() {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-16 flex flex-col md:flex-row group hover:shadow-2xl transition duration-300">
           <div className="md:w-1/2 relative min-h-[350px] overflow-hidden">
             <Image 
-              src="/sondajçalışan.webp" 
+              src="/sondajmakine.webp" 
               alt="Su Sondajı Çalışması" 
               fill
               className="object-cover group-hover:scale-105 transition duration-700"

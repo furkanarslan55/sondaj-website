@@ -9,7 +9,7 @@ export default function Hakkimizda() {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/hakkimizdafoto.webp')",
+            backgroundImage: "url('/headerrr.webp')",
             filter: "blur(6px)",
             transform: "scale(1.1)"
           }}

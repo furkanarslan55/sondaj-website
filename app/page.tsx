@@ -156,7 +156,7 @@ export default function Home() {
             <div className="group border rounded-lg overflow-hidden shadow-sm hover:shadow-2xl transition duration-300">
               <div className="relative h-56 overflow-hidden">
                 <Image
-                  src="/sondajçalışan.webp"
+                  src="/sondajmakine.webp"
                   alt="Tekirdağ Derin Kuyu Su Sondajı"
                   fill
                   className="object-cover group-hover:scale-110 transition duration-500"
