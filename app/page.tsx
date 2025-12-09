@@ -217,87 +217,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEO CONTENT */}
-      <section className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800">Terra Sondaj: Tekirdağ’ın Lider Su Sondaj Firması 🏅</h2>
+     <section className="relative py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute -top-12 -left-12 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
+    <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-100 rounded-full blur-3xl opacity-30"></div>
+  </div>
 
-          <div className="text-gray-700 space-y-4">
+  <div className="relative container mx-auto px-6 max-w-4xl">
+    <h2 className="text-4xl font-extrabold text-gray-900 mb-10 tracking-tight">
+      Terra Sondaj: Tekirdağ’ın Lider Su Sondaj Firması 🏅
+    </h2>
 
-            <p>
-              Su sondajı, tarım alanları, sanayi ve kırsal bölgeler için hayati önem taşır.
-              <strong> Tekirdağ su sondaj firmaları </strong>
-              arasında öne çıkan Terra Sondaj, modern havalı ve çamurlu sondaj makineleriyle hizmet sunmaktadır.
-            </p>
+    <div className="bg-white shadow-xl rounded-2xl p-10 border border-gray-100 space-y-6 text-gray-700 leading-relaxed text-lg transition-all duration-300 hover:shadow-2xl">
+      
+      <p>
+        Su sondajı; tarım, sanayi ve kırsal altyapının temel ihtiyaçlarından biridir.
+        <strong className="font-semibold"> Tekirdağ su sondaj firmaları </strong> arasında 
+        öne çıkan Terra Sondaj, modern teknolojili havalı ve çamurlu sondaj makineleriyle 
+        yüksek performanslı çözümler üretmektedir.
+      </p>
 
-            <p>
-              Bölgedeki müşterilerimiz için en merak edilen konulardan biri
-              <strong> Tekirdağ su sondaj fiyatları 2025 </strong> listesidir.
-              Metre fiyatları zemine, kayalık yapıya ve istenen debiye göre değişiklik göstermektedir.
-              Tüm süreçte ruhsat, DSİ izinleri ve resmi işlemler tarafımızdan yürütülmektedir.
-            </p>
+      <p>
+        Bölgedeki müşterilerimiz tarafından en sık sorulan konulardan biri 
+        <strong className="font-semibold"> Tekirdağ su sondaj fiyatları 2025 </strong> listesidir.
+        Metre fiyatları; zemin sertliği, kayalık yoğunluğu ve talep edilen debiye göre 
+        değişiklik gösterir. Tüm işlem sürecinde ruhsat, DSİ izinleri ve resmî prosedürler 
+        firmamız tarafından eksiksiz şekilde yönetilmektedir.
+      </p>
 
-            <p>
-              Ayrıca <strong>artezyen kuyu açma</strong>, <strong>kuyu temizliği</strong> ve
-              <strong> dalgıç pompa montajı Tekirdağ </strong> bölgelerinde yaygın olarak verdiğimiz hizmetler arasındadır.
-            </p>
+      <p>
+        Ayrıca <strong className="font-semibold">artezyen kuyu açma</strong>, 
+        <strong className="font-semibold"> kuyu temizliği </strong> ve 
+        <strong className="font-semibold"> dalgıç pompa montajı (Tekirdağ) </strong> 
+        gibi hizmetlerimizle de profesyonel ve güvenilir çözümler sunuyoruz.
+      </p>
 
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
 
-      {/* VİDEO GALERİ (DEĞİŞMEDİ) */}
-      <section className="py-20 bg-slate-900 text-white border-t border-slate-800">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black tracking-wider mb-4">
-              SAHADAN GÖRÜNTÜLER
-            </h2>
-            <p className="text-gray-400">Gerçekleştirdiğimiz projelerden operasyon anları.</p>
-            <div className="w-24 h-1 bg-orange-500 mx-auto mt-6 rounded-full"></div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
 
-            <div className="bg-slate-800/50 p-3 rounded-2xl border border-slate-700/50 shadow-2xl hover:shadow-orange-500/10 transition duration-300">
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
-                <iframe
-                  className="w-full h-full object-cover"
-                  src="https://www.youtube.com/embed/jVHZarqzM60?si=WapKRC_UwlCBKyFt"
-                  title="Tekirdağ Derin Kuyu Sondaj Çalışması"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-bold text-orange-400">Derin Kuyu Sondajı</h3>
-                <p className="text-sm text-gray-400 mt-2">Zorlu arazi şartlarında gerçekleştirdiğimiz su sondaj çalışması.</p>
-              </div>
-            </div>
-
-            <div className="bg-slate-800/50 p-3 rounded-2xl border border-slate-700/50 shadow-2xl hover:shadow-orange-500/10 transition duration-300">
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-black">
-                <iframe
-                  className="w-full h-full object-cover"
-                  src="https://www.youtube.com/embed/jXkicooWzwE?si=VRzwT2Gjd2uUB4Yw"
-                  title="Tekirdağ Kuyu Temizliği ve İnkişaf"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-bold text-orange-400">Kuyu Temizliği ve İnkişaf</h3>
-                <p className="text-sm text-gray-400 mt-2">
-                  Verimi düşen kuyuların basınçlı hava ile temizlenerek eski debisine kavuşturulması.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      
 
     </main>
   );

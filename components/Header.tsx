@@ -22,6 +22,7 @@ export default function Header() {
           <ul className="flex space-x-8 text-sm font-medium tracking-wide">
             <li><Link href="/" className="hover:text-orange-400 transition duration-300">ANASAYFA</Link></li>
             <li><Link href="/hizmetler" className="hover:text-orange-400 transition duration-300">HİZMETLER</Link></li>
+                    <li><Link href="/hakkimizda" className="hover:text-orange-400 transition duration-300">HAKKIMIZDA</Link></li>
             <li><Link href="/blog" className="hover:text-orange-400 transition duration-300">BLOG</Link></li>
             <li><Link href="/iletisim" className="hover:text-orange-400 transition duration-300">İLETİŞİM</Link></li>
           </ul>

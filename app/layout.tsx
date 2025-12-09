@@ -117,7 +117,7 @@ export default function RootLayout({
                 <ul className="space-y-3 text-sm">
                   <li><Link href="/" className="hover:text-orange-500 transition">Anasayfa</Link></li>
                   <li><Link href="/hakkimizda" className="hover:text-orange-500 transition">Hakkımızda</Link></li>
-                  <li><Link href="/referanslar" className="hover:text-orange-500 transition">Referanslar</Link></li>
+               
                   <li><Link href="/iletisim" className="hover:text-orange-500 transition">İletişim</Link></li>
                 </ul>
               </div>
@@ -126,10 +126,10 @@ export default function RootLayout({
               <div>
                 <h4 className="text-white font-bold mb-6 border-b border-gray-800 pb-2 inline-block">Hizmetlerimiz</h4>
                 <ul className="space-y-3 text-sm">
-                  <li><Link href="/hizmetler/su-sondaji" className="hover:text-orange-500 transition">Su Sondajı</Link></li>
-                  <li><Link href="/hizmetler/zemin-etudu" className="hover:text-orange-500 transition">Zemin Etüdü</Link></li>
-                  <li><Link href="/hizmetler/kuyu-temizligi" className="hover:text-orange-500 transition">Kuyu Temizliği</Link></li>
-                  <li><Link href="/hizmetler/dalgic-pompa" className="hover:text-orange-500 transition">Dalgıç Pompa Satış</Link></li>
+                  <li><Link href="/hizmetler/" className="hover:text-orange-500 transition">Su Sondajı</Link></li>
+                  <li><Link href="/hizmetler/" className="hover:text-orange-500 transition">Zemin Etüdü</Link></li>
+                  <li><Link href="/hizmetler/" className="hover:text-orange-500 transition">Kuyu Temizliği</Link></li>
+                  <li><Link href="/hizmetler/" className="hover:text-orange-500 transition">Dalgıç Pompa Satış</Link></li>
                 </ul>
               </div>
 
