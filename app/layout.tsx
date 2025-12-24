@@ -85,23 +85,16 @@ export default function RootLayout({
     <html lang="tr">
       <head>
 
-        {/* ⭐ GOOGLE TAG (GTAG.JS) - TÜM SAYFALARA OTOMATİK UYGULANDI */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17771989046"
-        ></script>
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17771989046">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17771989046');
-            `,
-          }}
-        />  
-        {/* ⭐ GOOGLE TAG BİTİŞ */}
+  gtag('config', 'AW-17771989046');
+</script>
 
       </head>
 
